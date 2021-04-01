@@ -15,5 +15,4 @@ class Menu:
     def __init__(self, food):
         """ Initialize a new Menu object. """
         self.food = food
-        self.entrees = set()
-        
+        self.entrees = set() 
