@@ -9,3 +9,6 @@ class Menu:
     Entree: Will show the option of the entrees that are on the menu
     Dessert (str): Will show a list of the desserts available on the menu"""
     
+    def __init__(self, food):
+        self.food = food
+        
