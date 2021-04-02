@@ -12,6 +12,7 @@ class Menu:
     Dessert (str): Will show a list of the desserts available on the menu
     """
     
+    # init method for the food and entrees
     def __init__(self, food):
         """ Initialize a new Menu object. """
         self.food = food
