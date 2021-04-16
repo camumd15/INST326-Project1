@@ -7,9 +7,9 @@ class Menu:
     
     Attributes:
     
-    Sides (str): will list side options for meals
-    Entree (set of food): Will show the option of the entrees that are on the menu
-    Dessert (str): Will show a list of the desserts available on the menu
+    sides (lis of str): will list side options for meals
+    entree (list of food): Will show the option of the entrees that are on the menu
+    dessert (list of str): Will show a list of the desserts available on the menu
     """
     
     # init method for the food and entrees
@@ -18,22 +18,32 @@ class Menu:
         self.food = food
         self.entrees = set() 
 
-    """ this will print out the name of the restaurant that is searched by the user, 
-    if the restaurant is on the list it will print the name and if not it will say "Do not have" """
     def restaurantList(self, name):
-
-
-    """ This will take input from the user and read the csv to find what 
-    restaurants serve that dish and return a list of those places.
-     """
+        """ this will print out the name of the restaurant that is searched by the user, 
+            if the restaurant is on the list it will print the name and if not it will say "Do not have
+        """
+    
     def matchFood(self, filename):
-
+        """ This will take input from the user and read the csv to find what 
+            restaurants serve that dish and return a list of those places.
+        """
         return matches
 
-    """ This will ask the user for a price and if that price is within range of 
-    the restaurants, then it will return the names within range """
+    
     def prices(self, filename):
+        """ This will ask the user for a price and if that price is within range of 
+            the restaurants, then it will return the names within range 
+        """
         return inRange
 
-    if __name__ == "__main__":
-        args = parse_args(sys.argv[1:]) 
+def main():
+    """ Run the program
+    
+    Args:
+    
+    Returns:
+    
+    """
+
+if __name__ == "__main__":  
+    main()
