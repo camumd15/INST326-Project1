@@ -17,3 +17,15 @@ class Menu:
         """ Initialize a new Menu object. """
         self.food = food
         self.entrees = set() 
+
+    """ this will print out the name of the restaurant that is searched by the user, 
+    if the restaurant is on the list it will print the name and if not it will say "Do not have" """
+    def restaurantList(self, name):
+
+
+    """ This will take input from the user and read the csv to find what 
+    restaurants serve that dish and return a list of those places.
+     """
+    def matchFood():
+
+        return matches
