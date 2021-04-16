@@ -2,46 +2,67 @@
 eat and it will search through menus to show you what restaurants have that food 
 available"""
 class Menu:
-    """this class will have the lists of items on the menu to search 
-    through when called
+    """ Initialize the menu of food for each restaurants
     
     Attributes:
     
-    sides (lis of str): will list side options for meals
+    sides (lis of sides): will list side options for meals
     entree (list of food): Will show the option of the entrees that are on the menu
-    dessert (list of str): Will show a list of the desserts available on the menu
+    dessert (list of dessert): Will show a list of the desserts available on the menu
+    
     """
     
     # init method for the food and entrees
     def __init__(self, food):
-        """ Initialize a new Menu object. """
+        """ Initialize a new Menu object.
+        """
         self.food = food
         self.entrees = set() 
 
     def restaurantList(self, name):
-        """ this will print out the name of the restaurant that is searched by the user, 
-            if the restaurant is on the list it will print the name and if not it will say "Do not have
+        """ Prints out a list of restaurants
+        
+        Args:
+            name (set of name): a set of new students.
+            food_list (set of (tuple of str, str)): food and
+            corresponding name addresses of restaurant.
+
+        Raises:
+            ValueError: a restaurant object had an undefined name attribute.
+
+        Side effects:
+            Modifies the value of food_list.
+
         """
     
-    def matchFood(self, filename):
-        """ This will take input from the user and read the csv to find what 
-            restaurants serve that dish and return a list of those places.
+    def matchFood(self, flavor):
+        """ Take input from the user and read the csv to find what 
+            restaurants serve that dish.
+        
+        Args:
+        
+        Returns:
+        
         """
-        return matches
 
     
     def prices(self, filename):
-        """ This will ask the user for a price and if that price is within range of 
-            the restaurants, then it will return the names within range 
+        """ Ask the user for a price input and if that price is within range of 
+            the restaurants
+        
+        Args:
+        
+        Returns:
+        
         """
-        return inRange
+        
 
 def main():
     """ Run the program
     
     Args:
     
-    Returns:
+    Side Effects:
     
     """
 
