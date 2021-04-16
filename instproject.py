@@ -26,6 +26,14 @@ class Menu:
     """ This will take input from the user and read the csv to find what 
     restaurants serve that dish and return a list of those places.
      """
-    def matchFood():
+    def matchFood(self, filename):
 
         return matches
+
+    """ This will ask the user for a price and if that price is within range of 
+    the restaurants, then it will return the names within range """
+    def prices(self, filename):
+        return inRange
+
+    if __name__ == "__main__":
+        args = parse_args(sys.argv[1:]) 
