@@ -6,15 +6,15 @@ class Menu:
     
     Attributes:
     
-    sides (lis of sides): will list side options for meals
-    entree (list of food): Will show the option of the entrees that are on the menu
-    dessert (list of dessert): Will show a list of the desserts available on the menu
+    dessert (list of dessert): will list dessert options for meals
+    food (list of food): will show the option of the entrees that are on the menu
     
     """
     
     # init method for the food and entrees
     def __init__(self, food):
         """ Initialize a new Menu object.
+
         """
         self.food = food
         self.entrees = set() 
@@ -23,47 +23,52 @@ class Menu:
         """ Prints out a list of restaurants
         
         Args:
-            name (set of name): a set of new students.
+            entree (set of entree): a set of new entrees.
             food_list (set of (tuple of str, str)): food and
-            corresponding name addresses of restaurant.
+            corresponding entrees of restaurant.
 
         Raises:
-            ValueError: a restaurant object had an undefined name attribute.
+            ValueError: a restaurant object had an undefined entree attribute.
 
         Side effects:
             Modifies the value of food_list.
 
         """
     
-    def matchFood(self, flavor):
+    def matchFood(self, vegan, nonvegan):
         """ Take input from the user and read the csv to find what 
             restaurants serve that dish.
         
         Args:
+            vegan: a string that return a list of vegan food
+            non-vegan: a string that return a list of nonvegan food
         
         Returns:
-        
+            return the the type of food if its either vegan or nonvegan
         """
 
     
-    def prices(self, filename):
-        """ Ask the user for a price input and if that price is within range of 
-            the restaurants
+    def prices(self, filepath):
+        """ The method should read each line from the filepath 
         
         Args:
-        
-        Returns:
-        
-        """
-        
+            filepath = open a file and creates a dictionary list of the file
+            self.prices = output the prices of the entree of foods
 
-def main():
-    """ Run the program
+        Returns:
+            returns the tupples in the dictionary if its presents from the list
+        """
+
+def main(filename):
+    """ It will run the main script of the program 
     
     Args:
-    
-    Side Effects:
-    
+        filename (str): A file with other data from the cvs file
+        entree (float or int): the prices and type of food from the restaurants
+        
+    Returns:
+        type (float): output different kinds of foods from the list of restaurants 
+        
     """
 
 if __name__ == "__main__":  
