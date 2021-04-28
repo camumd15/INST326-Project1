@@ -12,13 +12,34 @@ class Menu:
     """
     
     # init method for the food and entrees
-    def __init__(self, food):
+    def __init__(self, restaurant, type, item, gluten, calories, prices):
         """ Initialize a new Menu object.
 
         """
         self.food = food
         self.entrees = set() 
-
+        user_input = int(input("If you would like to search for a specific restaurant type 1, If you want to search for a type of food press 2, If you want to search for a specific item from a menu press 3, if you want to see what options are gluten free press 4, if you want to search for foods that are under a certain calorie press 5, and lastly if you want to search for food items under a certain price then press 6."))
+        if user_input == 1:
+            restaurant_input = input("What restaurant are you looking for? ")
+            return self.restaurantList(restaurant_input)
+        if user_input == 2:
+            type_input = input("What type of food are you looking for? ")
+            return self.matchFood(type_input)
+        if user_input == 3:
+            item_input = input("What food item are you looking for? ")
+            return self.foodtype(item_input)
+        if user_input == 4:
+            gluten_input = input("Do you want the food to be gluten free? ")
+            return self.gluten(gluten_input)
+        if user_input == 5:
+            calories_input = input("What is the maximum number of calories you want to consume? ")
+            return self.calories(calories_input)
+        if user_input == 6:
+            prices_input = input("What is the maximum you are willing to spend? ")
+            return self.prices(prices_input)
+        
+        
+            
     def restaurantList(self, name):
         """ Prints out a list of restaurants
         
@@ -37,9 +58,9 @@ class Menu:
     
     def matchFood(self, vegan, nonvegan):
         """ Take input from the user and read the csv to find what 
-            restaurants serve that dish.
+            restaurants serve that dish."""
         
-        Args:
+        """Args:
             vegan: a string that return a list of vegan food
             non-vegan: a string that return a list of nonvegan food
         
@@ -58,7 +79,21 @@ class Menu:
         Returns:
             returns the tupples in the dictionary if its presents from the list
         """
-
+    def calories(self, filepath):
+        """This method will read the column from the csv file and return the
+        amount of calories that a specific food has.  
+        
+        Args:
+            filepath = reads the column and creates a dictionary of the calories
+            self.calories = out the amount of calories for the food item
+            
+        Returns: 
+            returns the amount of calories in the category"""
+    def foodtype(self, filepath):
+        "Foodtype"
+    def gluten(self, filepath):
+        "Whether it is gluten or not"
+    
 def main(filename):
     """ It will run the main script of the program 
     
