@@ -1,0 +1,8 @@
+Table 1
+Restaurant ,Type,Item,GlutenFree,Calories,Price,
+McDonald’s,Burger,Big Mac,No,563,3.99,
+Hard Times ,Wings ,12 Texas Wings,No,954,13.43,
+Jersey Mikes,Sandwich ,Giant Club Supreme,No,2140,15.99,
+Chipotle,Mexican,Chicken Bowl,Yes,390,6.50,
+Papa John’s,Pizza,Pepperoni Pizza,No,2806,15.99,
+Panda Express,Chinese ,Orange Chicken and Rice,Yes,800,7.50,
