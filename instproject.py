@@ -112,31 +112,70 @@ class Menu:
 
         print(matchFood())
     
-    def prices(self, filepath):
+    def prices(self, cost):
         """ The method should read each line from the filepath 
         
         Args:
-            filepath = open a file and creates a dictionary list of the file
+            cost = shows a file and creates a dictionary list of the file
             self.prices = output the prices of the entree of foods
 
         Returns:
             returns the tupples in the dictionary if its presents from the list
         """
-    def calories(self, filepath):
+        
+        if self.prices == "Big Mac":
+            cost = df["Restaurant"] == 3.99
+            return cost
+        if self.prices == "Texas Wings":
+            cost = df["Restaurant"] == 13.43
+            return cost
+        if self.prices == "Giant Club Supreme":
+            cost = df["Restaurant"] == 15.99
+            return cost
+        if self.prices == "Chicken Bowl":
+            cost = df["Restaurant"] == 6.50
+            return cost
+        if self.prices == "Pepperoni Pizza":
+            cost = df["Restaurant"] == 15.99
+            return cost
+        if self.prices == "Orange Chicken and Rice":
+            cost = df["Restaurant"] == 7.50
+            return cost
+        
+        print(prices)
+        
+    def calories(self, amount):
         """This method will read the column from the csv file and return the
         amount of calories that a specific food has.  
         
         Args:
-            filepath = reads the column and creates a dictionary of the calories
+            amount = shows the column and creates a dictionary of the calories
             self.calories = out the amount of calories for the food item
             
         Returns: 
-            returns the amount of calories in the category"""
-    def foodtype(self, filepath):
-        "Foodtype"
-    def gluten(self, filepath):
-        "Whether it is gluten or not"
-    
+            returns the amount of calories in the category
+        """
+        if self.calories == "Burger":
+            amount = df["Restaurant"] == 563
+            return amount
+        if self.calories == "Wings":
+            amount = df["Restaurant"] == 954
+            return amount
+        if self.calories == "Sandwhich":
+            amount = df["Restaurant"] == 2140
+            return amount
+        if self.calories == "Mexican":
+            amount = df["Restaurant"] == 390
+            return amount
+        if self.calories == "Pizza":
+            amount = df["Restaurant"] == 2806
+            return amount
+        if self.calories == "Chinese":
+            amount = df["Restaurant"] == 800
+            return amount
+            
+        print(calories)
+        
 def main(filename):
     """ It will run the main script of the program 
     
