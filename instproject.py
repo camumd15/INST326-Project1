@@ -4,16 +4,20 @@ import pandas as pd
 df = pd.read_csv("restaurants.csv")
 
 
-"""This project will allow you to type in a certain type of food that you want to
-eat and it will search through menus to show you what restaurants have that food 
-available"""
+"""This project will allow the user to search through various restaurants
+using different categories of search. The menu will then be returned of the restaurants that 
+meet the specifications"""
 class Menu:
     """ Initialize the menu of food for each restaurants
     
     Attributes:
     
-    dessert (list of dessert): will list dessert options for meals
-    food (list of food): will show the option of the entrees that are on the menu
+    name: name of the restaurant
+    category: type of food served
+    food: menu item served
+    gluten: if the item is gluten free
+    calories: number of calories in the item
+    prices: how much the item costs
     
     """
     
@@ -32,18 +36,16 @@ class Menu:
         
             
 def restaurantList(menus, restaurant):
-    """ Prints out a list of restaurants
+    """ returns the restaurant chosen by the user
         
     Args:
-        entree (set of entree): a set of new entrees.
-        food_list (set of (tuple of str, str)): food and
-        corresponding entrees of restaurant.
+        name: the name of the restaurant chosen
 
     Raises:
         ValueError: a restaurant object had an undefined entree attribute.
 
     Side effects:
-        Modifies the value of food_list.
+        Modifies the value finalmenu.
 
     """
     finalmenu = []
@@ -54,14 +56,13 @@ def restaurantList(menus, restaurant):
     
 def matchFood(menus, category):
     """ Take input from the user and read the csv to find what 
-        restaurants serve that dish."""
+        restaurants serve that type of food."""
         
     """Args:
-        vegan: a string that return a list of vegan food
-        non-vegan: a string that return a list of nonvegan food
+        category: the type of food that is served
         
     Returns:
-        return the the type of food if its either vegan or nonvegan
+        return the restaurants that serve that type of food
     """
     finalmenu = []
     for menu in menus:
@@ -89,10 +90,10 @@ def price_method(menus, price):
         
     Args:
         cost = shows a file and creates a dictionary list of the file
-        self.prices = output the prices of the entree of foods
+        menu.prices = output the prices of the entree of foods
 
     Returns:
-        returns the tupples in the dictionary if its presents from the list
+        returns the menus of restaurants that serve food for under the user specified amount
     """
     finalmenu = []
     for menu in menus:
