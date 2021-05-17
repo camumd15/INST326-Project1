@@ -1,5 +1,8 @@
+from argparse import ArgumentParser
+import sys
 import pandas as pd
 df = pd.read_csv("restaurants.csv")
+
 
 """This project will allow you to type in a certain type of food that you want to
 eat and it will search through menus to show you what restaurants have that food 
@@ -15,33 +18,17 @@ class Menu:
     """
     
     # init method for the food and entrees
-    def __init__(self, restaurant, type, item, gluten, calories, prices):
+    def __init__(self, name, category, food, gluten, calories, prices):
         """ Initialize a new Menu object.
 
         """
+        self.name = name
+        self.category = category
         self.food = food
-        self.entrees = set() 
-        user_input = int(input("If you would like to search for a specific restaurant type 1, If you want to search for a type of food press 2, If you want to search for a specific item from a menu press 3, if you want to see what options are gluten free press 4, if you want to search for foods that are under a certain calorie press 5, and lastly if you want to search for food items under a certain price then press 6."))
-        if user_input == 1:
-            restaurant_input = input("Which restaurant would you like to choose: Mcdonalds, Hard Times, Jersey Mikes, Chipotle, Papa John's, Panda Express? ")
-            return self.restaurantList(restaurant_input)
-        elif user_input == 2:
-            type_input = input("What type of food are you looking for: Burger, Wings, Sandwich, Chicken Bowl, Pizza, Chinese? ")
-            return self.matchFood(type_input)
-        elif user_input == 3:
-            item_input = input("What food item are you looking for? ")
-            return self.foodtype(item_input)
-        elif user_input == 4:
-            gluten_input = input("Do you want the food to be gluten free? ")
-            return self.gluten(gluten_input)
-        elif user_input == 5:
-            calories_input = input("What is the maximum number of calories you want to consume? ")
-            return self.calories(calories_input)
-        elif user_input == 6:
-            prices_input = input("What is the maximum you are willing to spend? ")
-            return self.prices(prices_input)
-        else:
-            print("Invalid input")
+        self.gluten = gluten
+        self.calories = calories
+        self.prices = prices 
+        
         
             
     def restaurantList(self, restaurant):
@@ -59,28 +46,28 @@ class Menu:
             Modifies the value of food_list.
 
         """
-        if self.restaurantList == "Mcdonalds":
+        if self.name == "Mcdonalds":
             mcdonalds = df["Restaurant"] == "Mcdonalds"
             return mcdonalds
-        if self.restaurantList == "Hard Times":
+        if self.name == "Hard Times":
             hardTimes = df["Restaurant"] == "Hard Times"
             return hardTimes
-        if self.restaurantList == "Jersey Mikes":
+        if self.name == "Jersey Mikes":
             jerseyMikes = df["Restaurant"] == "Jersey Mikes"
             return jerseyMikes
-        if self.restaurantList == "Chipotle":
+        if self.name == "Chipotle":
             chipotle = df["Restaurant"] == "Chipotle"
             return chipotle
-        if self.restaurantList == "Papa John's":
+        if self.name == "Papa John's":
             papas = df["Restaurant"] == "Papa John's"
             return papas
-        if self.restaurantList == "Panda Express":
+        if self.name == "Panda Express":
             pandaEx = df["Restaurant"] == "Panda Express"
             return pandaEx
 
         print(restaurantList())
     
-    def matchFood(self, type):
+    def matchFood(self, category):
         """ Take input from the user and read the csv to find what 
             restaurants serve that dish."""
         
@@ -91,28 +78,28 @@ class Menu:
         Returns:
             return the the type of food if its either vegan or nonvegan
         """
-        if self.matchFood == "Burger":
+        if self.category == "Burger":
             burger = df["Restaurant"] == "McDonalds"
             return burger
-        if self.matchFood == "Wings":
+        if self.category == "Wings":
             wings = df["Restaurant"] == "Hard Times"
             return wings
-        if self.matchFood == "Sandwich":
+        if self.category == "Sandwich":
             sandwich = df["Restaurant"] == "Jersey Mikes"
             return sandwich
-        if self.matchFood == "Chicken Bowl":
+        if self.category == "Chicken Bowl":
             bowl = df["Restaurant"] == "Chipotle"
             return bowl
-        if self.matchFood == "Pizza":
+        if self.category == "Pizza":
             pizza = df["Restaurant"] == "Papa John's"
             return pizza
-        if self.matchFood == "Chinese":
+        if self.category == "Chinese":
             chinese = df["Restaurant"] == "Panda Express"
             return chinese
 
         print(matchFood())
     
-    def prices(self, cost):
+    def price(self, prices):
         """ The method should read each line from the filepath 
         
         Args:
@@ -142,9 +129,9 @@ class Menu:
             cost = df["Restaurant"] == 7.50
             return cost
         
-        print(prices)
+        print(price)
         
-    def calories(self, amount):
+    def calories(self, calories):
         """This method will read the column from the csv file and return the
         amount of calories that a specific food has.  
         
@@ -187,6 +174,41 @@ def main(filename):
         type (float): output different kinds of foods from the list of restaurants 
         
     """
+    with open(filename, 'r', encoding = 'utf-8') as f:
+        for line in f:
+            split = line.split(",")
+            if split[0] != "Table 1" and split[0] != "Restaurant ":
+                name = split[0]
+                category = split[1]
+                food = split[2]
+                gluten = split[3]
+                calories = split[4]
+                price = split[5]
+
+
+    user_input = int(input("If you would like to search for a specific restaurant type 1, If you want to search for a type of food press 2, If you want to search for a specific item from a menu press 3, if you want to see what options are gluten free press 4, if you want to search for foods that are under a certain calorie press 5, and lastly if you want to search for food items under a certain price then press 6."))
+    if user_input == 1:
+        restaurant_input = input("Which restaurant would you like to choose: Mcdonalds, Hard Times, Jersey Mikes, Chipotle, Papa John's, Panda Express? ")
+        return self.restaurantList(restaurant_input)
+    elif user_input == 2:       
+        type_input = input("What type of food are you looking for: Burger, Wings, Sandwich, Chicken Bowl, Pizza, Chinese? ")
+        return self.matchFood(type_input)
+    elif user_input == 3:
+        item_input = input("What food item are you looking for? ")
+        return self.foodtype(item_input)
+    elif user_input == 4:
+        gluten_input = input("Do you want the food to be gluten free? ")
+        return self.gluten(gluten_input)
+    elif user_input == 5:
+        calories_input = input("What is the maximum number of calories you want to consume? ")
+        return self.calories(calories_input)
+    elif user_input == 6:
+        prices_input = input("What is the maximum you are willing to spend? ")
+        return self.prices(prices_input)
+    else:
+        print("Invalid input")
 
 if __name__ == "__main__":  
-    main()
+    
+    main(sys.argv[1])
+    
